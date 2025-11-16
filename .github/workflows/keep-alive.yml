@@ -1,0 +1,15 @@
+name: Keep Render App Alive
+
+on:
+  schedule:
+    # Runs every 14 minutes
+    - cron: "*/14 * * * *"
+  workflow_dispatch: # allows manual trigger
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render App
+        run: |
+          curl -s https://exam-prep-backend-6sjl.onrender.com > /dev/null
